@@ -4,7 +4,6 @@ const sequelize = require('../config/db');
 // สร8าง Model สําหรับ Product
 const Product = sequelize.define('Product', {
     proId: {
-
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,

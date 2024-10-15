@@ -9,19 +9,19 @@ const router = express.Router();
 const upload_path = './public/images';
 // ตรวจสอบวKามีโฟลเดอรg uploads หรือไมK
 if (!fs.existsSync(upload_path)) {
-    // ถ8าไมKมีให8สร8างใหมK
-    fs.mkdirSync(upload_path, { recursive: true });
+// ถ8าไมKมีให8สร8างใหมK
+fs.mkdirSync(upload_path, { recursive: true });
 }
 //ตั้งคKา multer สําหรับจัดการไฟลgอัปโหลด
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        //กําหนดให8อัพโหลดไปไฟลgไปไว8ที่โฟลเดอรg public/images
-        cb(null, 'public/images/');
-    },
-    filename: (req, file, cb) => {
-        //ตั้งชื่อไฟลgโดยใช8วันที่และเวลาปûจจุบัน
-        cb(null, Date.now() + path.extname(file.originalname));
-    },
+destination: (req, file, cb) => {
+//กําหนดให8อัพโหลดไปไฟลgไปไว8ที่โฟลเดอรg public/images
+cb(null, 'public/images/');
+},
+filename: (req, file, cb) => {
+//ตั้งชื่อไฟลgโดยใช8วันที่และเวลาปûจจุบัน
+cb(null, Date.now() + path.extname(file.originalname));
+},
 });
 const upload = multer({ storage: storage });
 

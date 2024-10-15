@@ -12,8 +12,8 @@ app.use('/images', express.static('images'));
 app.use('/api', routes);
 
 const PORT = process.env.PORT || 3000;
-sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
-    });
+sequelize.sync({force: false}).then(() => {
+app.listen(PORT, () => {
+console.log(`Server running on port ${PORT}`);
+});
 }).catch(error => console.error(error));
